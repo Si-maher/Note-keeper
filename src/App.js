@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React, { createContext } from 'react'
+import Header from './components/header/header-component.jsx'
+import Footer from './components/footer/footer-component.jsx';
+import Note from './components/note/note-component.jsx';
+import notes from './components/notes'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+    <Header/>
+   {
+    notes.map(createNote => 
+    <Note
+    key = {createNote.id}
+    title = {createNote.title}
+    content = {createNote.content} />
+    )
+   }
+    <Footer/>
+ </div>
+  );}
 export default App;
+
+
+
+    
+
+    
+    
