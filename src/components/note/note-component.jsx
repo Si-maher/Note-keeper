@@ -1,11 +1,15 @@
 import React from "react";
-import "./note-styles.css";
+import "../../App.css";
 
 const Note = (props) => {
+  function handleClick() {
+    props.onDelete(props.id);
+  }
   return (
-    <div>
+    <div className="note">
       <h1>{props.title}</h1>
       <p>{props.content}</p>
+      <button onClick={handleClick}>Delete</button>
     </div>
   );
 };
